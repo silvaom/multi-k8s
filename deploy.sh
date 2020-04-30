@@ -7,3 +7,7 @@ docker build -t zefhon/multi-server -f ./server/Dockerfile ./server
 docker push zefhon/multi-client
 docker push zefhon/multi-server
 docker push zefhon/multi-worker
+
+kubectl apply -f k8s
+
+kubectl set image deployments/server-deployment server=zefhon/multi-server
